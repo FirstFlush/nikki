@@ -6,6 +6,4 @@ class HomeView(NikkiAPIView):
 
     def get(self, request:Request, *args, **kwargs):
 
-        print('hihihi nikki')
-
-        return Response({"Bleh":"Blob"})
+        return Response(data={"Status":"Under construction"}, status=200)
