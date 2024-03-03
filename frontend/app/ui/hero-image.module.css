@@ -1,0 +1,6 @@
+
+
+.heroImg {
+    object-fit: cover;
+    filter: grayscale(0.7) brightness(75%);
+}
