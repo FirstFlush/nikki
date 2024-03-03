@@ -4,10 +4,9 @@ Welcome to the codebase for [nikkiracing.com](https://nikkiracing.com), the offi
 
 ## Project Overview
 
-"Nikki" is not just a car; it's an ongoing project that blends engineering excellence with the thrill of racing. Through this website, we aim to share updates, technical insights, and the beauty of custom engineering with the world.
+"Nikki" is not just a car; it's an ongoing project that blends Tesla engineering excellence with the thrill of racing. Through this website, we aim to share updates, technical insights, and the beauty of custom engineering with the world.
 
 ## Tech Stack
-
 
 ### Backend
 
@@ -22,11 +21,11 @@ Welcome to the codebase for [nikkiracing.com](https://nikkiracing.com), the offi
 
 ## Project Status
 
-This project is actively developed and maintained by me. It's a personal project and not open source, but I'm documenting the tech stack and setup here for future reference and for anyone interested in the build process of Nikki.
+This project is actively developed and maintained by me. It's a personal project and not open source, but I'm documenting the tech stack and setup here for future reference and for anyone who might take over the codebase in the future.
 
 ## License
 
-This project is not open source and is developed for the Nikki Racing project documentation. All rights reserved.
+This project is not open source and is developed for the Nikki Racing project. All rights reserved.
 
 ## Contact
 

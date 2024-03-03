@@ -58,4 +58,12 @@ class Account(AbstractBaseUser):
 
 
 
+class Subscriber(models.Model):
 
+    email = models.EmailField(max_length=255, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self) -> str:
+        return self.email
+    

@@ -2,8 +2,27 @@ from nikki_backend.base_views import NikkiAPIView
 from rest_framework.views import Request, Response
 
 
-class HomeView(NikkiAPIView):
+from django.shortcuts import render
+from rest_framework.views import Response, Request
+from nikki_backend.base_views import NikkiAPIView
+from account.serializers import EmailSerializer
 
-    def get(self, request:Request, *args, **kwargs):
 
-        return Response(data={"Status":"Under construction"}, status=200)
+class ComingSoonView(NikkiAPIView):
+
+    def get(self, req:Request, *args, **kwargs):
+        return Response({'get':'gah'})
+
+
+class EmailSubscribeView(NikkiAPIView):
+
+    def post(self, req:Request, *args, **kwargs):
+        print('posttt')
+        print(req.data)
+        print('----')
+        # serializer = EmailSerializer(data=req.data)
+        # if serializer.is_valid(raise_exception=True):
+        #     serializer.save()
+
+        return Response({'bleh':'blah'})
+

@@ -19,4 +19,17 @@ class AccountAdmin(admin.ModelAdmin):
     ]
 
 
+class SubscriberAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'email',
+        'date_created',
+    ]
+
+    search_fields = [
+        'email',
+    ]
+
+
+admin_site.register(Subscriber, SubscriberAdmin)
 admin_site.register(Account, AccountAdmin)

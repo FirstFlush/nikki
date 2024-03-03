@@ -1,6 +1,13 @@
 
 
-.heroImg {
-    object-fit: cover;
-    filter: grayscale(0.7) brightness(75%);
+.heroImg{
+    object-fit:cover;
+}
+
+.heroImgBg {
+    background-image: url('/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
