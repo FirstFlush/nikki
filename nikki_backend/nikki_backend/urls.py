@@ -7,8 +7,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin_site.urls),
-    path('', views.ComingSoonView.as_view(), name='coming_soon'),
-    path('subscribe-email/', views.EmailSubscribeView.as_view(), name='subscribe'),
+    # path('', views.ComingSoonView.as_view(), name='coming_soon'),
+    path('api/subscribe/', views.EmailSubscribeView.as_view(), name='subscribe'),
     # path('build/', include('racecar_build.urls')),
 ]
 
