@@ -17,12 +17,14 @@ class ComingSoonView(NikkiAPIView):
 class EmailSubscribeView(NikkiAPIView):
 
     def post(self, req:Request, *args, **kwargs):
-        print('posttt')
-        print(req.data)
-        print('----')
-        # serializer = EmailSerializer(data=req.data)
-        # if serializer.is_valid(raise_exception=True):
-        #     serializer.save()
-
+        serializer = EmailSerializer(data=req.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
         return Response({'bleh':'blah'})
 
+
+class TestView(NikkiAPIView):
+
+    def get(self, req:Request, *args, **kwargs):
+        print('hohihhi')
+        return Response({"Ok":"All Good"})

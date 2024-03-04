@@ -2,6 +2,7 @@
 
 export const subscribeEmail = async (email: string): Promise<any> => {
     const response = await fetch('https://nikkiracing.com/api/subscribe/', {
+    // const response = await fetch('http://192.168.1.165:8000/api/subscribe/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
