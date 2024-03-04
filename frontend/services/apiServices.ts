@@ -1,7 +1,7 @@
 
 
 export const subscribeEmail = async (email: string): Promise<any> => {
-    const response = await fetch('https://nikkiracing.com/api/subscribe-email/', {
+    const response = await fetch('https://nikkiracing.com/api/subscribe/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
