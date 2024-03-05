@@ -10,7 +10,7 @@ urlpatterns = [
     # path('', views.ComingSoonView.as_view(), name='coming_soon'),
     path('api/test', views.TestView.as_view(), name='test'),
     path('api/subscribe/', views.EmailSubscribeView.as_view(), name='subscribe'),
-    # path('build/', include('racecar_build.urls')),
+    path('api/nikki/', include('racecar_build.urls')),
 ]
 
 if settings.DEBUG:

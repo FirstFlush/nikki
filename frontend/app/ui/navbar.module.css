@@ -1,0 +1,9 @@
+
+
+/* .navLink {
+    margin: 0 0.5rem;
+} */
+.navLink:hover {
+    color: inherit;
+    cursor: pointer;
+}

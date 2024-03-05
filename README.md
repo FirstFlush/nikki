@@ -12,6 +12,7 @@ Welcome to the codebase for [nikkiracing.com](https://nikkiracing.com), the offi
 
 - **Framework**: Django Rest Framework
 - **Database**: PostgreSQL
+- **Caching / Data Storage**: Redis
 
 ### Frontend
 

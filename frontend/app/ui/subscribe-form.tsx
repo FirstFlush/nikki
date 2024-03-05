@@ -44,7 +44,7 @@ export default function SubscribeForm() {
                     // color="secondary"
                 />
                 <Button type="submit" variant="outlined" color="primary">
-                    Subscribe
+                    <Typography variant="button">Subscribe</Typography>
                 </Button>
                 
             </form>

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'account',
-    # 'racecar_build',
+    'racecar_build',
 ]
 
 MIDDLEWARE = [

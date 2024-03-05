@@ -15,8 +15,11 @@ export const darkTheme = createTheme({
     },
     text: {
       primary: '#DADADA', // Ensures text is primarily white for readability
-      secondary: '#aaaaaa', // A lighter grey for secondary text
+      secondary: '#AAA', // A darker grey for secondary text
     },
+    secondary: {
+      main: '#AAA'
+    }
     // Add other color customizations here
   },
   // You can also customize typography, breakpoints, and other aspects here

@@ -32,8 +32,10 @@ html {
 }
 
 body {
+  box-sizing: border-box;
   color: rgb(var(--foreground-rgb));
   font-family: 'NikkiFont', sans-serif; 
+  background: black;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -58,4 +60,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 
+}
+
+
+.titleFont {
+  font-family: 'NikkiFont';
+  letter-spacing: 15px;
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 10px;
 }

@@ -8,9 +8,24 @@ import styles from "./coming-soon.module.css";
 export default function ComingSoon() {
     return (
         <Card className={styles.box}>
-            <CardContent>
-                <h1 className={styles.titleFont}>NIKKI RACING</h1>
-                <div className={styles.subtitle}> The future of racing</div>
+            <CardContent sx={{ 
+                letterSpacing: { xs: '2px', sm: '5px' }, 
+                textAlign: 'center',
+                fontSize: { xs: '1.25rem', sm: '1.5rem' },
+            }}
+            >
+                {/* <h1 className="titleFont">NIKKI RACING</h1> */}
+                <h2>COMING SOON</h2>
+                <CardContent 
+                    sx={{
+                        letterSpacing: '2px',
+                        color: '#007bff',
+                        fontSize: '14px',
+                        textAlign: 'center'
+                    }}
+                > 
+                    The future of racing
+                </CardContent>
             </CardContent>
 
             <CardContent>

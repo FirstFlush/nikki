@@ -5,24 +5,25 @@ import '@fontsource/roboto/700.css';
 
 import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme } from '../theme/dark'; // Adjust the import path to where your theme is defined
-
-import HeroImage from "./ui/hero-image";
 import ComingSoon from './ui/coming-soon';
-
+import { NavBar } from './ui/navbar';
 
 export default function Home() {
   return (
-    <div className="heroImgBg">
+    <ThemeProvider theme={darkTheme}>
+      <div>
+        
 
-    <main className="flex flex-col items-center justify-between p-8">
-      <ThemeProvider theme={darkTheme}>
-        {/* <HeroImage /> */}
-          <ComingSoon />
-      </ThemeProvider>
+        <NavBar />
+        <div className="heroImgBg">
 
+          <main className="flex flex-col items-center justify-between p-8">
+                <ComingSoon />
 
-    </main>
-    </div>
+          </main>
+        </div>
+      </div>
+    </ThemeProvider>
 
   );
 }
