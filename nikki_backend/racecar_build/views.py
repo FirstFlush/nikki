@@ -8,6 +8,9 @@ class GalleryView(NikkiAPIView):
 
     def get(self, req:Request, *args, **kwargs):
         imgs = NikkiImage.objects.filter(is_active=True)
-        serializer = NikkiImageSerializer(instance=imgs, many=True)
-
+        context = {
+            'req':req,
+        }
+        serializer = NikkiImageSerializer(instance=imgs, context=context, many=True)
+        print(serializer.data)
         return Response ({'imgs':serializer.data})

@@ -8,6 +8,7 @@ class NikkiImageAdmin(admin.ModelAdmin):
     list_display = [
         'is_active',
         'image',
+        'date_photo',
         'date_created',
     ]
 

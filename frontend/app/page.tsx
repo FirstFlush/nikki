@@ -5,8 +5,8 @@ import '@fontsource/roboto/700.css';
 
 import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme } from '../theme/dark'; // Adjust the import path to where your theme is defined
-import ComingSoon from './ui/coming-soon';
-import { NavBar } from './ui/navbar';
+import ComingSoon from './components/coming-soon';
+import { NavBar } from './components/navbar';
 
 export default function Home() {
   return (

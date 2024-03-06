@@ -1,0 +1,7 @@
+{
+    "base": "localhost:8000/api/",
+    "routes": {
+        "imgs": "nikki/gallery/",
+        "subscribe": "subscribe/"
+    }
+}

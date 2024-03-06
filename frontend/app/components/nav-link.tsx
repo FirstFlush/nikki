@@ -16,8 +16,8 @@ export const NavLink: React.FC<NavLinkProps> = ({link, text}) => {
             color={theme.palette.text.secondary}
             sx={{
                 '&:hover': {
-                  color: 'inherit', // Applies the inherit value for color on hover
-                  cursor: 'pointer', // Changes the cursor to a pointer on hover
+                  color: 'inherit',
+                  cursor: 'pointer',
                 },
                 display: {xs: 'none', sm: 'inline'}
             }}
@@ -25,10 +25,9 @@ export const NavLink: React.FC<NavLinkProps> = ({link, text}) => {
             <Link href={link}>
                 {text}
             </Link>
-        
         </Typography>
-)
-}
+    )
+};
 
 
 

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { TextField, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import { subscribeEmail } from '../../services/apiServices';
+import { fetchEmail } from '../../services/apiServices';
 
 
 export default function SubscribeForm() {
@@ -14,10 +14,9 @@ export default function SubscribeForm() {
         event.preventDefault()
         setError('')
         try {
-            await subscribeEmail(email);
+            await fetchEmail(email);
             setEmail('');
             setSubmitted(true)
-    
         } catch (err) {
             setError('Failed to subscribe. Please try again later.')
             setSubmitted(false)
