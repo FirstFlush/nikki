@@ -1,16 +1,18 @@
 "use client";
 
-import { Swiper, SwiperSlide} from 'swiper/react';
 import React, { useEffect, useState } from 'react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { Box } from '@mui/material';
+import ImageGallery from "react-image-gallery";
+import 'react-image-gallery/styles/css/image-gallery.css';
+
 import { apiCall, ApiCallOptions } from '../../services/apiServices';
-import { HttpMethod } from '../types/enums';
+import { HttpMethod } from '../common/enums';
+import styles from './page.module.css';
 
 
 type ImageData = {
     img_url: string;
+    img_url_thumb: string;
     caption: string;
     description: string;
     date: string;
@@ -20,7 +22,8 @@ type Images = {
     imgs:Array<ImageData>;
 };
 
-const ImageGallery:React.FC = () => {
+
+const NikkiImageGallery:React.FC = () => {
 
     const [images, setImages] = useState<Images>({ imgs: [] })
 
@@ -31,7 +34,7 @@ const ImageGallery:React.FC = () => {
                 url: 'api/nikki/gallery/',
                 method: HttpMethod.GET,
                 errorMessage: 'Failed to fetch images',
-                throwError: true,
+                // throwError: true,
             }
             const data = await apiCall<Images>(options)
             return data
@@ -42,18 +45,37 @@ const ImageGallery:React.FC = () => {
         })
     }, [])
 
-    return (
+    const imagesForGallery = images.imgs.map((img) => ({
+        original: img.img_url,
+        originalClass: styles.imageWrap,
+        thumbnail: img.img_url_thumb,
+        description: img.description,
+        originalAlt: img.caption,
+        thumbnailAlt: img.caption,
         
-        <div>
-            {images.imgs.map((image, index) => (
-                <div key={index}>
-                    <img src={image.img_url}></img>
-                </div>
-            ))}
-        </div>
+    }));
+
+
+
+    return (
+        <Box sx={{margin:"3rem 0"}}>
+            <ImageGallery
+                items={imagesForGallery}
+                lazyLoad={true}
+                showPlayButton={false}
+                additionalClass={styles.imageGallery}
+            />
+        </Box>
+        // <div>
+        //     {images.imgs.map((image, index) => (
+        //         <div key={index}>
+        //             <img src={image.img_url_thumb}></img>
+        //         </div>
+        //     ))}
+        // </div>
     )
 
 
 }
 
-export default ImageGallery;
+export default NikkiImageGallery;

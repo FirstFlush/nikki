@@ -1,14 +1,10 @@
 import Link from 'next/link';
 import { Typography, useTheme } from "@mui/material";
+import { BasicLinkProps } from '../common/commonTypes';
 
 
-type NavLinkProps = {
-    link: string;
-    text: string;
-};
 
-
-export const NavLink: React.FC<NavLinkProps> = ({link, text}) => {
+export const NavLink: React.FC<BasicLinkProps> = ({link, text}) => {
 
     const theme = useTheme()
     return (

@@ -12,5 +12,4 @@ class GalleryView(NikkiAPIView):
             'req':req,
         }
         serializer = NikkiImageSerializer(instance=imgs, context=context, many=True)
-        print(serializer.data)
         return Response ({'imgs':serializer.data})

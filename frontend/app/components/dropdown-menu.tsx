@@ -1,6 +1,8 @@
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { IconButton, Menu, Box } from "@mui/material";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { DropdownMenuItem } from "./dropdown-menu-item";
+
 
 export const DropdownMenu: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -13,7 +15,7 @@ export const DropdownMenu: React.FC = () => {
     };
 
     return (
-        <div>
+        <Box>
             <IconButton
                 edge="start"
                 color="inherit"
@@ -40,10 +42,11 @@ export const DropdownMenu: React.FC = () => {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}>Gallery</MenuItem>
-                <MenuItem onClick={handleClose}>Blog</MenuItem>
-                <MenuItem onClick={handleClose}>Contact</MenuItem>
+                <DropdownMenuItem link='/' text='Home' onClick={handleClose} />
+                <DropdownMenuItem link='gallery/' text='Gallery' onClick={handleClose} />
+                <DropdownMenuItem link='blog/' text='Blog' onClick={handleClose} />
+                <DropdownMenuItem link='contact/' text='Contact' onClick={handleClose} />
             </Menu>
-        </div>
+        </Box>
     );
 };

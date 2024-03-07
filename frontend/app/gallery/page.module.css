@@ -1,0 +1,16 @@
+
+
+
+.imageWrap {
+    max-height: 400px;
+    object-fit: contain;
+    align-items: center;
+    /* border-radius:10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+
+}
+/* 
+.imageWrap img {
+    border-radius:10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+} */

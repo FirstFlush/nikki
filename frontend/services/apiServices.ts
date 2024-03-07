@@ -1,4 +1,4 @@
-import { HttpMethod } from "../app/types/enums";
+import { HttpMethod } from "../app/common/enums";
 
 
 export type ApiCallOptions = {
@@ -11,15 +11,9 @@ export type ApiCallOptions = {
 };
 
 
-
-
-
 export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => {
     const {url, method, body, headers, errorMessage} = options;
-    let throwError = options.throwError;
-    if (!throwError) {
-        throwError = false;
-    };
+    const throwError = options.throwError || false;
     const fetchOptions:RequestInit = {
         method: method,
         headers: {
@@ -27,11 +21,9 @@ export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => 
             ...headers
         },
     } 
-    
     if (method !== "GET" && method !== "HEAD" && body !== undefined) {
         fetchOptions.body = JSON.stringify(body);
     }
-
     try {
         const response = await fetch(url, fetchOptions);
         if (!response.ok) {
@@ -54,7 +46,6 @@ export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => 
 
 
 export const fetchEmail = async (email: string): Promise<any> => {
-    // const response = await fetch('https://nikkiracing.com/api/subscribe/', {
     const response = await fetch("api/subscribe/", {
         // const response = await fetch('http://192.168.1.165:8000/api/subscribe/', {
         method: "POST",

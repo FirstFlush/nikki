@@ -34,14 +34,25 @@ html {
 body {
   box-sizing: border-box;
   color: rgb(var(--foreground-rgb));
-  font-family: 'NikkiFont', sans-serif; 
+  height: 100%;
+  width: 100%;
+  /* background-image: url('/images/hero.jpg'); */
+  background-color: #333442;
+  /* background-color: grey; */
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  /* display: flex;
+  flex-direction: column; */
+
+  /* font-family: 'NikkiFont', sans-serif; 
   background: black;
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 
