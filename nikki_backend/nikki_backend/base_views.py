@@ -9,7 +9,7 @@ from rest_framework.views import APIView, Request, Response
 
 class NikkiAPIView(APIView):
 
-    authentication_classes = [SessionAuthentication]
+    authentication_classes = []
     permission_classes = [AllowAny]
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
     
