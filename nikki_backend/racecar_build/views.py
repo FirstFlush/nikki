@@ -14,6 +14,4 @@ class GalleryView(NikkiAPIView):
         }
         serializer = NikkiImageSerializer(instance=imgs, context=context, many=True)
 
-        print(req.build_absolute_uri('asdffdsa'))
-        print('+'*80)
         return Response ({'imgs':serializer.data})

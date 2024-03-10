@@ -11,7 +11,7 @@ from account.serializers import EmailSerializer
 class ComingSoonView(NikkiAPIView):
 
     def get(self, req:Request, *args, **kwargs):
-        return Response({'get':'gah'})
+        return Response({})
 
 
 class EmailSubscribeView(NikkiAPIView):
@@ -20,11 +20,11 @@ class EmailSubscribeView(NikkiAPIView):
         serializer = EmailSerializer(data=req.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-        return Response({'bleh':'blah'})
+        return Response({})
 
 
-class TestView(NikkiAPIView):
+# class TestView(NikkiAPIView):
 
-    def get(self, req:Request, *args, **kwargs):
-        print('hohihhi')
-        return Response({"Ok":"All Good"})
+#     def get(self, req:Request, *args, **kwargs):
+#         print('hohihhi')
+#         return Response({}) 

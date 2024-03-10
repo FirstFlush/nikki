@@ -57,6 +57,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ),
+}
+
 ROOT_URLCONF = 'nikki_backend.urls'
 
 TEMPLATES = [
@@ -99,6 +106,11 @@ DATABASES = {
     }
 }
 
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
@@ -167,10 +179,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' # primary key
 
-
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}

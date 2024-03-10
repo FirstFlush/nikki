@@ -18,8 +18,9 @@ type ImageData = {
     date: string;
 };
 
+
 type Images = {
-    imgs:Array<ImageData>;
+    imgs:ImageData[];
 };
 
 
@@ -30,7 +31,7 @@ const NikkiImageGallery:React.FC = () => {
     useEffect (() => {
         const fetchData = async() => {
             const options:ApiCallOptions = {
-                // url: 'http://192.168.1.165:8000/api/nikki/gallery/',
+                // url: 'http://192.168.1.166:8000/api/nikki/gallery/',
                 url: 'api/nikki/gallery/',
                 method: HttpMethod.GET,
                 errorMessage: 'Failed to fetch images',
@@ -55,8 +56,6 @@ const NikkiImageGallery:React.FC = () => {
         
     }));
 
-
-
     return (
         <Box sx={{margin:"3rem 0"}}>
             <ImageGallery
@@ -66,16 +65,11 @@ const NikkiImageGallery:React.FC = () => {
                 additionalClass={styles.imageGallery}
             />
         </Box>
-        // <div>
-        //     {images.imgs.map((image, index) => (
-        //         <div key={index}>
-        //             <img src={image.img_url_thumb}></img>
-        //         </div>
-        //     ))}
-        // </div>
     )
 
 
 }
 
 export default NikkiImageGallery;
+
+

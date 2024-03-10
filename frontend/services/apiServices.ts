@@ -8,6 +8,7 @@ export type ApiCallOptions = {
     headers?: Record<string, string>;
     errorMessage?: string;
     throwError?: boolean;
+    // auth?: boolean;
 };
 
 
