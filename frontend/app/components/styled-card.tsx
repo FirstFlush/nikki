@@ -24,7 +24,7 @@ const StyledCard:React.FC<StyledCardProps> = ({ title, subtitle, children }) => 
                     minWidth: '300px',
                     padding: '1rem',
                     margin: '3rem 0',
-                    backgroundImage: 'linear-gradient(to bottom, hsl(236, 22%, 15%),hsl(236, 22%, 20%)'
+                    backgroundImage: 'linear-gradient(to bottom, hsl(236, 22%, 15%), hsl(236, 22%, 20%)'
                 }}
             
             >
@@ -56,9 +56,9 @@ const StyledCard:React.FC<StyledCardProps> = ({ title, subtitle, children }) => 
                 
 
                 <CardContent>
-                    <Typography variant="body2">
+                    {/* <Typography variant="body2"> */}
                         {children}
-                    </Typography>
+                    {/* </Typography> */}
                 </CardContent>
             </Card>
         </Box>
