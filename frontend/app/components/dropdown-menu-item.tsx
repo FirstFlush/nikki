@@ -7,7 +7,7 @@ export const DropdownMenuItem: React.FC<BasicLinkProps> = ({link, text, external
 
     return (
         external ? (
-            <a href={link} target="_blank">
+            <a href={link} target="_blank" rel="noopener noreferrer">
                 <MenuItem onClick={onClick}>
                     {text}
                 </MenuItem>

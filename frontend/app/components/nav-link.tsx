@@ -20,7 +20,7 @@ export const NavLink: React.FC<BasicLinkProps> = ({
             }}
         >
             {external ? (
-                <a href={link} target="_blank">{text}</a>
+                <a href={link} target="_blank" rel="noopener noreferrer">{text}</a>
             ) : (
                 <Link href={link}>{text}</Link>
             )}
