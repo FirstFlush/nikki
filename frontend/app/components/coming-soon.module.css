@@ -7,9 +7,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    z-index: 60;
+    /* z-index: 60; */
     max-width: 600px;
-    min-width:300;
+    min-width:300px;
     /* background-color: #1e1f2f; */
     padding: 1rem;
     margin:3rem 0;

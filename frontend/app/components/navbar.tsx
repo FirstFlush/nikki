@@ -32,8 +32,9 @@ export const NavBar:React.FC = () => {
                     text="Gallery"
                 />
                 <NavLink 
-                    link="/blog" 
+                    link="https://medium.com/@firstflush" 
                     text="Blog"
+                    external={true}
                 />
                 <NavLink 
                     link="/contact" 
