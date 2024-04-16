@@ -18,8 +18,6 @@ const About:React.FC = () => {
             </StyledCard>
         </Box>
     )
-
-
 }
 
 

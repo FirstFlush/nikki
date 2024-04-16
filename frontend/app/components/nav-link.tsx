@@ -6,6 +6,7 @@ export const NavLink: React.FC<BasicLinkProps> = ({
     link,
     text,
     external = false,
+    hide = true
 }) => {
     const theme = useTheme();
     return (
@@ -16,7 +17,7 @@ export const NavLink: React.FC<BasicLinkProps> = ({
                     color: "inherit",
                     cursor: "pointer",
                 },
-                display: { xs: "none", sm: "inline" },
+                display: hide ? { xs: "none", sm: "inline" } : { xs: "inline", sm: "inline" },
             }}
         >
             {external ? (

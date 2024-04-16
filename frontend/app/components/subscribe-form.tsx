@@ -14,7 +14,7 @@ export default function SubscribeForm() {
         phone: '',
         comments: ''
       };
-      
+
 
     const [formData, setFormData] = useState<SubscirbeFormData>(initialFormData)
     const [submitted, setSubmitted] = useState(false);

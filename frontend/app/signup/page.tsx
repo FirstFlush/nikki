@@ -1,9 +1,7 @@
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Box } from '@mui/material';
 import SubscribeForm from '../components/subscribe-form';
 import StyledCard from '../components/styled-card';
-
 
 
 export default function SignUp() {

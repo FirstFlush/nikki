@@ -1,7 +1,11 @@
 import { HttpMethod } from "../app/common/enums";
 import { apiRoutes } from "./apiRoutes";
-import { SubscirbeFormData } from "./formTypes";
+import { SubscirbeFormData, SignInFormData } from "./formTypes";
 
+
+const defaultHeaders = {
+    'content-type': 'application/json'
+}
 
 export type ApiCallOptions = {
     url: string;
@@ -46,6 +50,20 @@ export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => 
     }
     return null
 };
+
+
+export const login = async(loginFormData: SignInFormData): Promise<any> => {
+    const response = await fetch(apiRoutes.login, {
+        method: "POST",
+        headers: defaultHeaders,
+        body: JSON.stringify(loginFormData),
+        // credentials: 'include',
+    })
+    if (!response.ok) {
+        throw new Error("Failed to login");
+    }
+    return response.json();
+}
 
 
 export const subscribe = async (subscribeFormData: SubscirbeFormData): Promise<any> => {
