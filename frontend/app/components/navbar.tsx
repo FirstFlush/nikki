@@ -36,6 +36,10 @@ export const NavBar:React.FC = () => {
                     text="Blog"
                     external={true}
                 />
+                <NavLink
+                    link="/about"
+                    text="About Us"
+                />
                 <NavLink 
                     link="/contact" 
                     text="Contact"

@@ -14,7 +14,7 @@ urlpatterns = [
     path('api/zzzyx_nikkiadmin/', admin_site.urls),
     # path('', views.ComingSoonView.as_view(), name='coming_soon'),
     # path('api/test', views.TestView.as_view(), name='test'),
-    path('api/subscribe/', views.EmailSubscribeView.as_view(), name='subscribe'),
+    path('api/subscribe/', views.SubscribeView.as_view(), name='subscribe'),
     path('api/nikki/', include('racecar_build.urls')),
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

@@ -20,11 +20,11 @@ const StyledCard:React.FC<StyledCardProps> = ({ title, subtitle, children }) => 
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    maxWidth: '600px',
+                    maxWidth: '800px',
                     minWidth: '300px',
                     padding: '1rem',
                     margin: '3rem 0',
-                    backgroundImage: 'linear-gradient(to bottom, hsl(236, 22%, 15%), hsl(236, 22%, 20%)'
+                    // backgroundImage: 'linear-gradient(to top, hsl(236, 22%, 15%), hsl(236, 22%, 20%)'
                 }}
             
             >

@@ -1,4 +1,4 @@
-from rest_framework.authentication import SessionAuthentication
+# from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import AllowAny
 from rest_framework.renderers import JSONRenderer, JSONOpenAPIRenderer
 from rest_framework.throttling import AnonRateThrottle, UserRateThrottle

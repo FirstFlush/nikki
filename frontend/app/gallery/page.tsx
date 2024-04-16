@@ -8,6 +8,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import { apiCall, ApiCallOptions } from '../../services/apiServices';
 import { HttpMethod } from '../common/enums';
 import styles from './page.module.css';
+import { apiRoutes } from '../../services/apiRoutes';
 
 
 type ImageData = {
@@ -31,8 +32,9 @@ const NikkiImageGallery:React.FC = () => {
     useEffect (() => {
         const fetchData = async() => {
             const options:ApiCallOptions = {
+                url: apiRoutes.gallery,
                 // url: 'http://192.168.1.166:8000/api/nikki/gallery/',
-                url: 'api/nikki/gallery/',
+                // url: 'api/nikki/gallery/',
                 method: HttpMethod.GET,
                 errorMessage: 'Failed to fetch images',
                 // throwError: true,

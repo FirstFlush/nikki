@@ -1,11 +1,10 @@
 from nikki_backend.base_views import NikkiAPIView
-from rest_framework.views import Request, Response
-
+from rest_framework.views import Request, Response, status
 
 from django.shortcuts import render
 from rest_framework.views import Response, Request
 from nikki_backend.base_views import NikkiAPIView
-from account.serializers import EmailSerializer
+from account.serializers import SubscriberSerializer
 
 
 class ComingSoonView(NikkiAPIView):
@@ -14,17 +13,13 @@ class ComingSoonView(NikkiAPIView):
         return Response({})
 
 
-class EmailSubscribeView(NikkiAPIView):
+class SubscribeView(NikkiAPIView):
 
     def post(self, req:Request, *args, **kwargs):
-        serializer = EmailSerializer(data=req.data)
-        if serializer.is_valid(raise_exception=True):
+
+        serializer = SubscriberSerializer(data=req.data)
+        if serializer.is_valid():
             serializer.save()
-        return Response({})
 
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
-# class TestView(NikkiAPIView):
-
-#     def get(self, req:Request, *args, **kwargs):
-#         print('hohihhi')
-#         return Response({}) 

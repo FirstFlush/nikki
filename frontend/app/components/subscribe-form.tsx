@@ -2,11 +2,21 @@
 import React, { useState } from 'react';
 import { TextField, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import { fetchEmail } from '../../services/apiServices';
+import { subscribe } from '../../services/apiServices';
+import { SubscirbeFormData } from '../../services/formTypes';
 
 
 export default function SubscribeForm() {
-    const [email, setEmail] = useState('')
+
+    const initialFormData: SubscirbeFormData = {
+        name: '',
+        email: '',
+        phone: '',
+        comments: ''
+      };
+      
+
+    const [formData, setFormData] = useState<SubscirbeFormData>(initialFormData)
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
@@ -14,14 +24,23 @@ export default function SubscribeForm() {
         event.preventDefault()
         setError('')
         try {
-            await fetchEmail(email);
-            setEmail('');
+            await subscribe(formData);
+            setFormData(initialFormData);
             setSubmitted(true)
         } catch (err) {
             setError('Failed to subscribe. Please try again later.')
             setSubmitted(false)
         }
     };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
 
     return (
         <div>
@@ -35,12 +54,40 @@ export default function SubscribeForm() {
                 </Typography>
             ) : (
             <form onSubmit={handleSubmit} method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '20px', width:'100%' }} >
-                <TextField
-                    label="Email Address"
+                
+                <TextField 
+                    label="Name"
                     variant="outlined"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    // color="secondary"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Email address"
+                    variant="outlined"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Phone number"
+                    variant="outlined"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                />
+                <TextField
+                    label="Additional comments"
+                    variant="outlined"
+                    name="comments"
+                    multiline
+                    rows={4}
+                    value={formData.comments}
+                    onChange={handleChange}
+                    placeholder="Let us know what you'd like to see from the Nikki Racing project."
                 />
                 <Button type="submit" variant="outlined" color="primary">
                     <Typography variant="button">Subscribe</Typography>

@@ -45,6 +45,7 @@ export const DropdownMenu: React.FC = () => {
                 <DropdownMenuItem link='/' text='Home' onClick={handleClose} />
                 <DropdownMenuItem link='gallery/' text='Gallery' onClick={handleClose} />
                 <DropdownMenuItem link='https://medium.com/@firstflush' text='Blog' external onClick={handleClose} />
+                <DropdownMenuItem link='about/' text='About Us' onClick={handleClose} />
                 <DropdownMenuItem link='contact/' text='Contact' onClick={handleClose} />
             </Menu>
         </Box>

@@ -1,5 +1,5 @@
 import StyledCard from "../components/styled-card"
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, CardContent } from "@mui/material";
 
 
 const Contact:React.FC = () => {
@@ -18,7 +18,7 @@ const Contact:React.FC = () => {
                             // fontSize: '14px',
                             textAlign: 'center'
                         }}>
-                    
+                            speedfanatics@hotmail.com
                         </Typography>
                     </Box>
                     <Typography>
