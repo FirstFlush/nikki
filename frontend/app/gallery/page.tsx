@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import ImageGallery from "react-image-gallery";
@@ -9,6 +8,7 @@ import { apiCall, ApiCallOptions } from '../../services/apiServices';
 import { HttpMethod } from '../common/enums';
 import styles from './page.module.css';
 import { apiRoutes } from '../../services/apiRoutes';
+import { useAuth } from '../auth/auth-context';
 
 
 type ImageData = {
@@ -28,6 +28,7 @@ type Images = {
 const NikkiImageGallery:React.FC = () => {
 
     const [images, setImages] = useState<Images>({ imgs: [] })
+    const { auth } = useAuth();
 
     useEffect (() => {
         const fetchData = async() => {
@@ -37,6 +38,7 @@ const NikkiImageGallery:React.FC = () => {
                 // url: 'api/nikki/gallery/',
                 method: HttpMethod.GET,
                 errorMessage: 'Failed to fetch images',
+                headers: { "Authorization": `Bearer ${auth.token}` }
                 // throwError: true,
             }
             const data = await apiCall<Images>(options)

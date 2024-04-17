@@ -28,6 +28,10 @@ export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => 
             ...headers
         },
     } 
+
+    console.log(fetchOptions.headers)
+
+
     if (method !== "GET" && method !== "HEAD" && body !== undefined) {
         fetchOptions.body = JSON.stringify(body);
     }
@@ -57,12 +61,15 @@ export const login = async(loginFormData: SignInFormData): Promise<any> => {
         method: "POST",
         headers: defaultHeaders,
         body: JSON.stringify(loginFormData),
-        credentials: 'include',
+        // credentials: 'include',
     })
     if (!response.ok) {
         throw new Error("Failed to login");
     }
-    return response.json();
+    const data = await response.json();
+    localStorage.setItem('accessToken', data.access);
+    localStorage.setItem('refreshToken', data.refresh);
+    return data;
 }
 
 

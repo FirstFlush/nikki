@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+from datetime import timedelta
 from decouple import config
 import os
 from pathlib import Path
@@ -27,7 +28,19 @@ CORS_ALLOWED_ORIGINS = [
     'http://192.168.1.170:3000',  # If you access it via local network IP
 ]
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', cast=lambda v: v.lower()== 'true')
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    'x-csrf-token',
+    # add any other headers you need to allow
+]
 
+# JWT config
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=30),  # Increase as per your requirement
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Optional: Adjust based on use case
+    # Other configurations...
+}
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
@@ -67,8 +80,9 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+        # 'rest_framework.authentication.SessionAuthentication',
     ),
 }
 
