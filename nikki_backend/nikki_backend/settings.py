@@ -18,8 +18,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 AUTH_USER_MODEL = 'account.Account'
 
+
+# CORS config
+CORS_ALLOW_CREDENTIALS = True  # To allow cookies
+CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']  # Headers that browsers are allowed to access
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Assuming your Next.js runs on localhost:3000
+    'http://192.168.1.170:3000',  # If you access it via local network IP
+]
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', cast=lambda v: v.lower()== 'true')
-# CORS_ORIGIN_WHITELIST = []
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')

@@ -57,7 +57,7 @@ export const login = async(loginFormData: SignInFormData): Promise<any> => {
         method: "POST",
         headers: defaultHeaders,
         body: JSON.stringify(loginFormData),
-        // credentials: 'include',
+        credentials: 'include',
     })
     if (!response.ok) {
         throw new Error("Failed to login");
