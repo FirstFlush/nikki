@@ -46,7 +46,7 @@ export default function SubscribeForm() {
         <div>
             {submitted ? (
                 <Typography variant="body1" sx={{ marginTop: 2, textAlign: 'center' }}>
-                    Thanks for subscribing!
+                    Thanks for subscribing! We'll activate your account once we confirm the $15 e-transfer to <Typography component="span" fontWeight="bold">speedfanatics@hotmail.com</Typography>
                 </Typography>
             ) : error ? (
                 <Typography variant="body2" sx={{ marginTop: 2, textAlign: 'center', color: 'error.main' }}>

@@ -14,7 +14,6 @@ export type ApiCallOptions = {
     headers?: Record<string, string>;
     errorMessage?: string;
     throwError?: boolean;
-    // auth?: boolean;
 };
 
 
@@ -28,9 +27,6 @@ export const apiCall = async<T> (options: ApiCallOptions): Promise<T | null> => 
             ...headers
         },
     } 
-
-    console.log(fetchOptions.headers)
-
 
     if (method !== "GET" && method !== "HEAD" && body !== undefined) {
         fetchOptions.body = JSON.stringify(body);
@@ -67,8 +63,9 @@ export const login = async(loginFormData: SignInFormData): Promise<any> => {
         throw new Error("Failed to login");
     }
     const data = await response.json();
-    localStorage.setItem('accessToken', data.access);
-    localStorage.setItem('refreshToken', data.refresh);
+
+    // localStorage.setItem('accessToken', data.access);
+    // localStorage.setItem('refreshToken', data.refresh);
     return data;
 }
 

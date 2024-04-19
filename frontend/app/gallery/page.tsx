@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import ImageGallery from "react-image-gallery";
 import 'react-image-gallery/styles/css/image-gallery.css';
-
+import StyledCard from '../components/styled-card';
 import { apiCall, ApiCallOptions } from '../../services/apiServices';
 import { HttpMethod } from '../common/enums';
 import styles from './page.module.css';
@@ -29,12 +29,11 @@ const NikkiImageGallery:React.FC = () => {
 
     const [images, setImages] = useState<Images>({ imgs: [] })
     const { auth } = useAuth();
-
     useEffect (() => {
+    
         const fetchData = async() => {
             const options:ApiCallOptions = {
                 url: apiRoutes.gallery,
-                // url: 'http://192.168.1.166:8000/api/nikki/gallery/',
                 // url: 'api/nikki/gallery/',
                 method: HttpMethod.GET,
                 errorMessage: 'Failed to fetch images',
@@ -61,14 +60,25 @@ const NikkiImageGallery:React.FC = () => {
     }));
 
     return (
-        <Box sx={{margin:"3rem 0"}}>
-            <ImageGallery
-                items={imagesForGallery}
-                lazyLoad={true}
-                showPlayButton={false}
-                additionalClass={styles.imageGallery}
-            />
-        </Box>
+        <>
+        {auth.token ? (
+            <Box sx={{margin:"3rem 0"}}>
+                <ImageGallery
+                    items={imagesForGallery}
+                    lazyLoad={true}
+                    showPlayButton={false}
+                    additionalClass={styles.imageGallery}
+                />
+            </Box>
+            ) : (
+                <Box className="flex flex-col items-center">
+                    <StyledCard title="Image Gallery">
+                        You must be signed in to view the image gallery.
+                    </StyledCard>
+                </Box>
+            )
+        }
+        </>
     )
 
 

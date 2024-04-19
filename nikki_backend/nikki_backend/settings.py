@@ -25,7 +25,7 @@ CORS_ALLOW_CREDENTIALS = True  # To allow cookies
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']  # Headers that browsers are allowed to access
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Assuming your Next.js runs on localhost:3000
-    'http://192.168.1.170:3000',  # If you access it via local network IP
+    'http://192.168.1.171:3000',  # If you access it via local network IP
 ]
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', cast=lambda v: v.lower()== 'true')
 CORS_ALLOW_HEADERS = [

@@ -2,8 +2,7 @@ import CardContent from '@mui/material/CardContent';
 import { Box } from '@mui/material';
 import SignInForm from '../components/signin-form';
 import StyledCard from '../components/styled-card';
-// import dynamic from 'next/dynamic';
-
+// import { useAuth } from '../auth/auth-context';
 
 // const SignInForm = dynamic(() => import('../components/signin-form'), { ssr: false });
 

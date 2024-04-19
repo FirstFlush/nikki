@@ -1,14 +1,28 @@
 "use client";
-import { AppBar, Toolbar, IconButton, Typography, Box } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Box, useTheme } from "@mui/material";
 import React, { useState } from 'react';
 import { NavLink } from "./nav-link";
 import { darken } from "@mui/material/styles";
 import { DropdownMenu } from "./dropdown-menu";
 import Link from "next/link";
+import { useAuth } from "../auth/auth-context";
+
+
+export const signOut = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+};
 
 
 export const NavBar:React.FC = () => {
+    const { auth } = useAuth();
+    const theme = useTheme();
 
+    const handleSignOut = () => {
+        signOut();
+        window.location.reload();
+
+    };
     return (
         <AppBar position="static" component="nav">
             <Box sx={{
@@ -17,10 +31,29 @@ export const NavBar:React.FC = () => {
                     backgroundColor: darken('#333442', 0.6)
                 }}
             >
-                <NavLink link="/" text="Sign up" hide={false} />
-                <Typography component="span" sx={{margin: '0 0.5rem', userSelect: 'none'}}>|</Typography>
-                <NavLink link="/sign-in" text="Sign in" hide={false} />
+            {auth.token ? (
+                <>
+                    <Typography
+                        onClick={handleSignOut}
+                        color={theme.palette.text.secondary}
+                        sx={{
+                            "&:hover": {
+                                color: "inherit",
+                                cursor: "pointer",
+                            },
+                        }}
+                        >
+                        Sign out
+                    </Typography>
 
+                </>
+            ) : (
+                <>
+                    <NavLink link="/" text="Sign up" hide={false} />
+                    <Typography component="span" sx={{ margin: '0 0.5rem', userSelect: 'none' }}>|</Typography>
+                    <NavLink link="/sign-in" text="Sign in" hide={false} />
+                </>
+            )}
             </Box>
             <Toolbar sx={{ gap: '1rem' }}>
                 
